@@ -11,13 +11,14 @@ config = {
     "image_path": "images/",
 }
 
-cckkCV.cckkORB.read_colour()
+cckkCV.cckkCV2Detect.read_colour()
 
-img = cckkCV.cckkORB(img_filename = "RockBW.jpg", img_path = config['image_path'], auto_detect=False)
-print(f"Identified shape: {img.identify_shape()}")
+file_list = ["RockBW.jpg", "PaperBW.jpg", "ScissorsBW.jpg", "RockW.jpg", "PaperW.jpg", "ScissorsW.jpg", "Rock.jpg", "Paper.jpg", "Scissors.jpg"]
 
-img = cckkCV.cckkORB(img_filename = "PaperBW.jpg", img_path = config['image_path'], auto_detect=False)
-print(f"Identified shape: {img.identify_shape()}")
+for filename in file_list:
+    img = cckkCV.cckkCV2Detect(img_filename = filename, img_path = config['image_path'])
+    print(f"Identified shape: {img.identify_shape()} for {img.filename}")
 
-img = cckkCV.cckkORB(img_filename = "ScissorsBW.jpg", img_path = config['image_path'], auto_detect=False)
-print(f"Identified shape: {img.identify_shape()}")
+for filename in file_list:
+    img = cckkCV.cckkCV2Detect(img_filename = filename, img_path = config['image_path'])
+    print(f"Identified colour: {img.identify_colour()} for {img.filename}")
